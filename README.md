@@ -1,5 +1,7 @@
 # tensorflow_lung
 
+The model is built from [chest x-ray datasets provided by NIH](https://goo.gl/gkZXvE)
+
 ### step1 : create /tf_file/lung_photos in root dir
 ### step2: run python match_label_image.py
 ### step3: run convert_png.py
