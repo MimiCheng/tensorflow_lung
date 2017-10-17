@@ -8,11 +8,12 @@ The model is built from [chest x-ray datasets provided by NIH](https://goo.gl/gk
 * training image in JPEG format 
 
 ### step1 : create /tf_file/lung_photos in root dir
+Put all the training images into one folder inside images directory. 
+Try to remove all duplicate images, they could inflate the test and validation accuracy.
 ### step2: run python match_label_image.py
 ### step3: run convert_png.py 
+For converting training images from .png to .jpg
 ### step4: run script below
-
-
 **script for retraining**
 
 python -m scripts.retrain \
