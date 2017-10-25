@@ -1,5 +1,7 @@
 # tensorflow_lung
 
+Reading and diagnosing chest x-ray images may be a relatively simple task for radiologists but, in fact, it is a complex reasoning problem which often requires careful observation and knowledge of anatomical principles, physiology and pathology.
+
 The model is built from [chest x-ray datasets provided by NIH](https://goo.gl/gkZXvE)
 
 ## Requirements
