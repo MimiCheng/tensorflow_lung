@@ -10,7 +10,7 @@ def main():
 
     for i in label:
         path = r'C:/Users/Mimi/git/tensorflow_lung/tf_files/lung_photos_png/{}/'.format(i)
-        output_dir = "C:/Users/Mimi/git/tensorflow_lung/tf_files/lung_photos/{0}/".format(i)
+        output_dir = r'C:/Users/Mimi/git/tensorflow_lung/tf_files/lung_photos/{0}/'.format(i)
 
         print(path)
         for file in glob.glob(path + "*.png"):
