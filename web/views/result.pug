@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .page-header
+    h3 Disease Detector Result
+  hr
+  .row
+    .col-sm-6
+      img.img-responsive(src="/uploads/" + filehash, alt="")
+    .col-sm-6
+      for item in diseases
+        li= item
+
+  

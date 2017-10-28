@@ -2,3 +2,41 @@
 /image_retraining
 /normal_web
 /tf_files
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+
+pids
+logs
+results
+tmp
+
+#Build
+/web/public/css/main.css
+
+# API keys and secrets
+/web/.env
+
+# Dependency directory
+/web/node_modules
+/web/bower_components
+
+# Upload tf_files
+/web/uploads
+/web/public/uploads
+
+# Editors
+.idea
+*.iml
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
