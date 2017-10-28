@@ -19,6 +19,7 @@ def main():
             #create folder if not exists
             if not os.path.exists(output_dir):
                 os.makedirs(output_dir)
+            im = im.convert("RGB")
             im.save(output_dir + "{}.jpg".format(file2))
 
 
