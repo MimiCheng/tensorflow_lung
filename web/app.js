@@ -20,7 +20,7 @@ const expressStatusMonitor = require('express-status-monitor');
 const sass = require('node-sass-middleware');
 const multer = require('multer');
 
-const upload = multer({ dest: path.join(__dirname, 'uploads') });
+const upload = multer({ dest: path.join(__dirname, '/public/uploads') });
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -123,7 +123,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 app.get('/', homeController.index);
 app.get('/detector', detectorController.index);
 app.post('/detector', upload.single('image'), detectorController.postImage);
-app.get('/detector/:imageHash', detectorController.getDetectDisease);
+app.get('/detector/:fileHash', detectorController.getDetectDisease);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);

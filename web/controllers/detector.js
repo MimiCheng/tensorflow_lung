@@ -18,6 +18,7 @@ exports.getDetectDisease = (req, res) => {
 
     res.render('result', {
       title: 'Result',
+      filehash: req.params.fileHash,
       diseases: diseases
     });
   });
