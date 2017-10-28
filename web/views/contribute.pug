@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .page-header
+    h3 Help us improve accuracy
+  hr
+  for image in images
+    .row
+      .col-sm-6
+        img.img-responsive(src="/sample_image/" + image, alt="")
+      .col-sm-6
+        form(action="contribute/" + image, method="POST")
+          input(type='hidden', name='_csrf', value=_csrf)
+          for disease in diseases
+            ul.col-sm-6
+              input(type="checkbox", name=disease)
+              |  #{disease}
+          .col-sm-8
+            button.btn.btn-primary(type="submit")
+              | Diagnose
+    hr

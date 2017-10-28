@@ -32,6 +32,7 @@ dotenv.load({ path: '.env.example' });
  */
 const homeController = require('./controllers/home');
 const detectorController = require('./controllers/detector');
+const contributeController = require('./controllers/contribute');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
@@ -124,6 +125,8 @@ app.get('/', homeController.index);
 app.get('/detector', detectorController.index);
 app.post('/detector', upload.single('image'), detectorController.postImage);
 app.get('/detector/:fileHash', detectorController.getDetectDisease);
+app.get('/contribute', contributeController.index);
+app.post('/contribute/:fileHash', contributeController.postDiagnose);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
