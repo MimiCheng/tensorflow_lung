@@ -18,13 +18,15 @@ exports.getDetectDisease = (req, res) => {
   console.log(scriptPath);
   const tfPath = path.join(__dirname, '/../../', '/tf_files/retrained_graph.pb');
   console.log(tfPath);
+  const tfLabelsPath = path.join(__dirname, '/../../', '/tf_files/retrained_labels.txt');
+  console.log(tfLabelsPath);
   const imagePath = path.join(__dirname, '/../', '/public/uploads/', req.params.fileHash);
   console.log(imagePath);
-  const cmd = 'python ' + scriptPath + ' --graph=' + tfPath + ' --image=' + imagePath;
+  const cmd = 'python ' + scriptPath + ' --graph=' + tfPath + ' --labels=' + tfLabelsPath + ' --image=' + imagePath;
   console.log(cmd);
   exec(cmd, (error, stdout, stderr) => {
     console.log(stdout);
-    const diseases = ['a', 'b', 'c']// stdout.split("\n");
+    const diseases = stdout.split("\n");
 
     res.render('result', {
       title: 'Result',
