@@ -1,5 +1,6 @@
 const sys = require('sys')
 const exec = require('child_process').exec;
+const path = require('path');
 
 exports.index = (req, res) => {
   res.render('detector', {
@@ -13,7 +14,16 @@ exports.postImage = (req, res, next) => {
 }
 
 exports.getDetectDisease = (req, res) => {
-  exec('pwd', (error, stdout, stderr) => {
+  const scriptPath = path.join(__dirname, '/../../', '/scripts/label_image.py');
+  console.log(scriptPath);
+  const tfPath = path.join(__dirname, '/../../', '/tf_files/retrained_graph.pb');
+  console.log(tfPath);
+  const imagePath = path.join(__dirname, '/../', '/public/uploads/', req.params.fileHash);
+  console.log(imagePath);
+  const cmd = 'python ' + scriptPath + ' --graph=' + tfPath + ' --image=' + imagePath;
+  console.log(cmd);
+  exec(cmd, (error, stdout, stderr) => {
+    console.log(stdout);
     const diseases = ['a', 'b', 'c']// stdout.split("\n");
 
     res.render('result', {
