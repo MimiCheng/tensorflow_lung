@@ -13,6 +13,12 @@ exports.postImage = (req, res, next) => {
 }
 
 exports.getDetectDisease = (req, res) => {
+  const scriptPath = path.join(__dirname, '/../../', '/scripts/label_image.py');
+  const tfPath = path.join(__dirname, '/../../', '/tf_files/retrained_graph.pb');
+  const tfLabelsPath = path.join(__dirname, '/../../', '/tf_files/retrained_labels.txt');
+  const imagePath = path.join(__dirname, '/../', '/public/uploads/', req.params.fileHash);
+  const cmd = 'python ' + scriptPath + ' --graph=' + tfPath + ' --labels=' + tfLabelsPath + ' --image=' + imagePath;
+
   exec(cmd, (error, stdout, stderr) => {
     const diseases = stdout.split("\n");
 
