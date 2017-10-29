@@ -127,5 +127,12 @@ if __name__ == "__main__":
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
-  for i in top_k:
-    print(labels[i], results[i])
+  for i in range(0,len(top_k)):
+    index = top_k[i]
+    if i > 0:
+      if results[index] > results[top_k[i-1]]/2.0:
+        print(labels[index], results[index])
+      else:
+        break
+    else:
+      print(labels[index], results[index]) 
